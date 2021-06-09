@@ -87,7 +87,7 @@ def testHospital():
     print()
 
     iterator = numeralSystem.getIterator()
-    while (iterator.next()):
+    while iterator.next():
         customer = iterator.current()
         print("下一位病人 %04d(%s) 请到 %s 就诊。"
               % (customer.getNum(), customer.getName(), customer.getClinic()))

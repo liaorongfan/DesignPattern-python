@@ -1,8 +1,4 @@
-#!/usr/bin/python
-# Authoer: Spencer.Luo
-# Date: 12/16/2017
 
-# Version 1.0
 #=======================================================================================================================
 from abc import ABCMeta, abstractmethod
 # 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
