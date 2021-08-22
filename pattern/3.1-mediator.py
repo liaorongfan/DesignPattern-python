@@ -14,7 +14,7 @@ class HouseInfo:
         return self.__address
 
     def getOwnerName(self):
-        return self.__owner.getName()
+        return self.__owner.get_name()
 
     def showInfo(self, isShowOwner=True):
         print(" - 面积:" + str(self.__area) + "平米" + "\n",
@@ -82,7 +82,7 @@ class HouseOwner:
 
     def publishHouseInfo(self, agency):
         agency.addHouseInfo(self.__houseInfo)
-        print(self.getName() + "在", agency.getName(), "发布房源出租信息：")
+        print(self.getName() + "在", agency.get_name(), "发布房源出租信息：")
         self.__houseInfo.showInfo()
 
 
@@ -108,7 +108,7 @@ class Customer:
 
     def signContract(self, houseInfo, agency, period):
         """与中介签订协议"""
-        print(self.getName(), "与中介", agency.getName(), "签订", houseInfo.getAddress(),
+        print(self.getName(), "与中介", agency.get_name(), "签订", houseInfo.getAddress(),
               "的房子的租赁合同, 租期", period, "年。合同期内", self.__name, "有权对其进行使用！")
 
 

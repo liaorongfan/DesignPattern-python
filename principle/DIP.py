@@ -15,9 +15,9 @@ class Animal(metaclass=ABCMeta):
 
     def eat(self, food):
         if(self.checkFood(food)):
-            print(self._name + "进食" + food.getName())
+            print(self._name + "进食" + food.get_name())
         else:
-            print(self._name + "不吃" + food.getName())
+            print(self._name + "不吃" + food.get_name())
 
     @abstractmethod
     def checkFood(self, food):

@@ -13,9 +13,9 @@ class Water:
 
     def changeState(self, state):
         if self.__state:
-            print("由", self.__state.getName(), "变为", state.getName())
+            print("由", self.__state.get_name(), "变为", state.get_name())
         else:
-            print("初始化为", state.getName())
+            print("初始化为", state.get_name())
         self.__state = state
 
     def getTemperature(self):

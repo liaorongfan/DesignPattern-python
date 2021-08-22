@@ -63,7 +63,7 @@ class NumeralSystem:
         self.__curNum += 1
         self.__customers.append(customer)
         print("%s 您好！您已在%s成功挂号，序号：%04d，请耐心等待！"
-              % (customer.getName(), self.__name, customer.getNum()))
+              % (customer.get_name(), self.__name, customer.getNum()))
 
     def getIterator(self):
         return NumeralIterator(self.__customers)
@@ -71,7 +71,7 @@ class NumeralSystem:
     def visit(self):
         for customer in self.__customers:
             print("下一位病人 %04d(%s) 请到 %s 就诊。"
-                  % (customer.getNum(), customer.getName(), customer.getClinic()))
+                  % (customer.getNum(), customer.get_name(), customer.getClinic()))
 
 
 def testHospital():

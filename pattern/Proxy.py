@@ -123,7 +123,7 @@ class WendyReception(ProxySubject):
         super().__init__(name, receiver)
 
     def preRequest(self):
-        print("我是%s的朋友，我来帮他代收快递！" % (self._realSubject.getName() + ""))
+        print("我是%s的朋友，我来帮他代收快递！" % (self._realSubject.get_name() + ""))
 
     def afterRequest(self):
         print("代收人：%s" % self.getName())

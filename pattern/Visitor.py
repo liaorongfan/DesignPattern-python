@@ -91,14 +91,14 @@ class Engineer(Visitor):
     """工程师"""
 
     def visit(self, book):
-        print("技术狗读%s一书后的感受：能抓住模式的核心思想，深入浅出，很有见地！" % book.getName())
+        print("技术狗读%s一书后的感受：能抓住模式的核心思想，深入浅出，很有见地！" % book.get_name())
 
 
 class ProductManager(Visitor):
     """产品经理"""
 
     def visit(self, book):
-        print("产品经理读%s一书后的感受：配图非常有趣，文章很有层次感！" % book.getName())
+        print("产品经理读%s一书后的感受：配图非常有趣，文章很有层次感！" % book.get_name())
 
 
 class OtherFriend(Visitor):
@@ -106,7 +106,7 @@ class OtherFriend(Visitor):
 
     def visit(self, book):
         print("IT圈外的朋友读%s一书后的感受：技术的内容一脸懵逼，但故事很精彩，像是看小说或是故事集！"
-              % book.getName())
+              % book.get_name())
 
 
 # 实战

@@ -158,13 +158,13 @@ def testCoffeeMaker():
 def testPenFactory():
     factory = PenFactory()
     linePen = factory.createPen(PenType.PenTypeLine)
-    print("创建了 %s，对象id：%s， 类型：%s" % (linePen.getName(), id(linePen), linePen.getType()) )
+    print("创建了 %s，对象id：%s， 类型：%s" % (linePen.get_name(), id(linePen), linePen.getType()))
     rectPen = factory.createPen(PenType.PenTypeRect)
-    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen.getName(), id(rectPen), rectPen.getType()) )
+    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen.get_name(), id(rectPen), rectPen.getType()))
     rectPen2 = factory.createPen(PenType.PenTypeRect)
-    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen2.getName(), id(rectPen2), rectPen2.getType()) )
+    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen2.get_name(), id(rectPen2), rectPen2.getType()))
     ellipsePen = factory.createPen(PenType.PenTypeEllipse)
-    print("创建了 %s，对象id：%s， 类型：%s" % (ellipsePen.getName(), id(ellipsePen), ellipsePen.getType()) )
+    print("创建了 %s，对象id：%s， 类型：%s" % (ellipsePen.get_name(), id(ellipsePen), ellipsePen.getType()))
 
 
 # testCoffeeMaker()

@@ -17,9 +17,9 @@ class Context(metaclass=ABCMeta):
         if state is None:
             return False
         if self.__curState is None:
-            print("初始化为", state.getName())
+            print("初始化为", state.get_name())
         else:
-            print("由", self.__curState.getName(), "变为", state.getName())
+            print("由", self.__curState.get_name(), "变为", state.get_name())
 
         self.__curState = state
         self.addState(state)

@@ -276,11 +276,11 @@ def scanDir(rootPath, folderDetail):
         if os.path.isdir(filePath):
             folder = FolderDetail(fileName)
             scanDir(filePath, folder)
-            folderDetail.addComponent(folder)
+            folderDetail.add_component(folder)
         else:
             fileDetail = FileDetail(fileName)
             fileDetail.setSize(os.path.getsize(filePath))
-            folderDetail.addComponent(fileDetail)
+            folderDetail.add_component(fileDetail)
             folderDetail.setCount(folderDetail.getCount() + 1)
 
 

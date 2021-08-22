@@ -194,7 +194,7 @@ class Supervisor(Responsible):
 
     def _handleRequestImpl(self, request):
         if (request.getDayOff() <= 2):
-            print("同意 %s 请假，签字人：%s(%s)" % (request.getName(), self.getName(), self.getTitle()))
+            print("同意 %s 请假，签字人：%s(%s)" % (request.get_name(), self.getName(), self.getTitle()))
 
 
 class DepartmentManager(Responsible):
@@ -205,7 +205,7 @@ class DepartmentManager(Responsible):
 
     def _handleRequestImpl(self, request):
         if (request.getDayOff() > 2 and request.getDayOff() <= 5):
-            print("同意 %s 请假，签字人：%s(%s)" % (request.getName(), self.getName(), self.getTitle()))
+            print("同意 %s 请假，签字人：%s(%s)" % (request.get_name(), self.getName(), self.getTitle()))
 
 
 class CEO(Responsible):
@@ -216,7 +216,7 @@ class CEO(Responsible):
 
     def _handleRequestImpl(self, request):
         if (request.getDayOff() > 5 and request.getDayOff() <= 22):
-            print("同意 %s 请假，签字人：%s(%s)" % (request.getName(), self.getName(), self.getTitle()))
+            print("同意 %s 请假，签字人：%s(%s)" % (request.get_name(), self.getName(), self.getTitle()))
 
 
 class Administrator(Responsible):
@@ -226,7 +226,7 @@ class Administrator(Responsible):
         super().__init__(name, title)
 
     def _handleRequestImpl(self, request):
-        print("%s 的请假申请已审核，情况属实！已备案处理。处理人：%s(%s)\n" % (request.getName(), self.getName(), self.getTitle()))
+        print("%s 的请假申请已审核，情况属实！已备案处理。处理人：%s(%s)\n" % (request.get_name(), self.getName(), self.getTitle()))
 
 # Test
 ########################################################################################################################

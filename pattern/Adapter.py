@@ -84,7 +84,7 @@ class HeightMatch:
         """假设标准身高差为10厘米内"""
         distance = abs(self.__person.getHeight() - person1.getHeight())
         isMatch = distance <= 10
-        print(self.__person.getName() + "和" + person1.getName() + "是否为情侣的标准身高差："
+        print(self.__person.get_name() + "和" + person1.get_name() + "是否为情侣的标准身高差："
               + ("是" if isMatch else "否") + ", 差值：" + str(distance))
 
 
@@ -96,7 +96,7 @@ class Hotel:
         :param person: IHightPerson的对象
         """
         suitable = self.receptionistSuitable(person)
-        print(person.getName() + "是否适合做接待员：", "符合" if suitable else "不符合")
+        print(person.get_name() + "是否适合做接待员：", "符合" if suitable else "不符合")
 
     def receptionistSuitable(self, person):
         """

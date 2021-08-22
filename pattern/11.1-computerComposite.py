@@ -1,9 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
 
-# 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
-
-
 class ComputerComponent(metaclass=ABCMeta):
     """组件，所有子配件的基类"""
 
