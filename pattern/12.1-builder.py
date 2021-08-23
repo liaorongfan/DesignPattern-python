@@ -1,0 +1,74 @@
+from abc import ABCMeta, abstractmethod
+
+
+class Toy(metaclass=ABCMeta):
+    """玩具"""
+
+    def __init__(self, name):
+        self._name = name
+        self.__components = []
+
+    def get_name(self):
+        return self._name
+
+    def add_component(self, component, count=1, unit="个"):
+        self.__components.append([component, count, unit])
+        print("%s 增加了 %d %s%s" % (self._name, count, unit, component))
+
+    @abstractmethod
+    def feature(self):
+        raise NotImplementedError
+
+
+class Car(Toy):
+    """小车"""
+
+    def feature(self):
+        print("我是 %s，我可以快速奔跑……" % self._name)
+
+
+class Manor(Toy):
+    """庄园"""
+
+    def feature(self):
+        print("我是 %s，我可供观赏，也可用来游玩！" % self._name)
+
+
+class ToyBuilder:
+    """玩具构建者"""
+
+    @staticmethod
+    def build_car():
+        car = Car("迷你小车")
+        print("正在构建 %s ……" % car.get_name())
+        car.add_component("轮子", 4)
+        car.add_component("车身", 1)
+        car.add_component("发动机", 1)
+        car.add_component("方向盘")
+        return car
+
+    @staticmethod
+    def build_manor():
+        manor = Manor("淘淘小庄园")
+        print("正在构建 %s ……" % manor.get_name())
+        manor.add_component('客厅', 1, "间")
+        manor.add_component('卧室', 2, "间")
+        manor.add_component("书房", 1, "间")
+        manor.add_component("厨房", 1, "间")
+        manor.add_component("花园", 1, "个")
+        manor.add_component("围墙", 1, "堵")
+        return manor
+
+
+def test_builder():
+    builder = ToyBuilder()
+    car = builder.build_car()
+    car.feature()
+
+    print()
+    manor = builder.build_manor()
+    manor.feature()
+
+
+if __name__ == "__main__":
+    test_builder()

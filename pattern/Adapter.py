@@ -172,8 +172,8 @@ class AdapterSocket(ISocket):
         return  self.__britishSocket.name() + "转换器"
 
     def getSocket(self):
-        socket = self.__britishSocket.socketInterface()
-        socket.setTypeOfPin("八字扁型")
+        socket = self.__britishSocket.socket_interface()
+        socket.set_pin_type("八字扁型")
         return socket
 
 
@@ -500,7 +500,7 @@ def testReader():
 
 
 def canChargeforDigtalDevice(name, socket):
-    if socket.getNumOfPin() == 3 and socket.getTypeOfPin() == "八字扁型":
+    if socket.get_pin_num() == 3 and socket.get_pin_type() == "八字扁型":
         isStandard = "符合"
         canCharge = "可以"
     else:
@@ -508,7 +508,7 @@ def canChargeforDigtalDevice(name, socket):
         canCharge = "不能"
 
     print("[%s]：\n针脚数量：%d，针脚类型：%s； %s中国标准，%s给大陆的电子设备充电！"
-          % (name, socket.getNumOfPin(), socket.getTypeOfPin(), isStandard, canCharge))
+          % (name, socket.get_pin_num(), socket.get_pin_type(), isStandard, canCharge))
 
 def testSocket():
     chineseSocket = ChineseSocket()
