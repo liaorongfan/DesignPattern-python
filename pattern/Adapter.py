@@ -381,13 +381,13 @@ class PdfAdapterBook(ThirdPdf, IBook):
     def getCatalogue(self):
         outline = self.getOutline()
         print("将Outline结构的目录转换成Catalogue结构的目录")
-        catalogue = Catalogue(self.__thirdPdf.getTitle())
+        catalogue = Catalogue(self.__thirdPdf.get_title())
         for title in outline.getOutlines():
             catalogue.addChapter(title)
         return catalogue
 
     def getPageCount(self):
-        return self.__thirdPdf.pageSize()
+        return self.__thirdPdf.page_size()
 
     def getPage(self, pageNum):
         page = self.page(pageNum)
@@ -419,7 +419,7 @@ class Reader:
     def openFile(self, filePath):
         self.__initBook(filePath)
         if(self.__curBook is not None):
-            rtn = self.__curBook.parseFile(filePath)
+            rtn = self.__curBook.parse_file(filePath)
             if(rtn):
                 self.__curPageNum = 1
             return rtn
@@ -430,8 +430,8 @@ class Reader:
         return True
 
     def showCatalogue(self):
-        catalogue = self.__curBook.getCatalogue()
-        catalogue.showInfo()
+        catalogue = self.__curBook.get_catalogue()
+        catalogue.show_info()
 
     def prePage(self):
         print("往前翻一页：", end="")
@@ -442,11 +442,11 @@ class Reader:
         return self.gotoPage(self.__curPageNum + 1)
 
     def gotoPage(self, pageNum):
-        if(pageNum > 1 and pageNum < self.__curBook.getPageCount() -1):
+        if(pageNum > 1 and pageNum < self.__curBook.get_page_count() -1):
             self.__curPageNum = pageNum
 
         print("显示第" + str(self.__curPageNum) + "页")
-        page = self.__curBook.getPage(self.__curPageNum)
+        page = self.__curBook.get_page(self.__curPageNum)
         page.getContent()
         return page
 

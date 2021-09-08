@@ -54,7 +54,7 @@ class HousingAgency:
         (为节省篇幅这里略去匹配的过程，全部输出)"""
         print(self.getName(), "为您找到以下最适合的房源：")
         for info in self.__houseInfos:
-            info.showInfo(False)
+            info.show_info(False)
         return self.__houseInfos
 
     def signContract(self, houseInfo, period):
@@ -83,7 +83,7 @@ class HouseOwner:
     def publishHouseInfo(self, agency):
         agency.addHouseInfo(self.__houseInfo)
         print(self.getName() + "在", agency.get_name(), "发布房源出租信息：")
-        self.__houseInfo.showInfo()
+        self.__houseInfo.show_info()
 
 
 class Customer:

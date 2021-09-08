@@ -1,3 +1,7 @@
+"""
+set a adapter to change British socket to Chinese socket.
+"""
+
 from abc import ABCMeta, abstractmethod
 
 
@@ -57,13 +61,13 @@ class AdapterSocket(ISocket):
     """插座转换器"""
 
     def __init__(self, british_socket):
-        self.__british_socket = british_socket
+        self.__british_socket = british_socket  # object
 
     def get_name(self):
         return self.__british_socket.name() + "转换器"
 
     def get_socket(self):
-        socket = self.__british_socket.socket_interface()
+        socket = self.__british_socket.socket_interface()  # socket: object of class SocketEntity
         socket.set_pin_type("八字扁型")
         return socket
 

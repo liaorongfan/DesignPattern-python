@@ -102,7 +102,7 @@ class ComputerComposite(ComputerComponent):
         print("%s,由以下部件组成:" % (self._name))
         indent += "\t"
         for element in self._components:
-            element.showInfo(indent)
+            element.show_info(indent)
 
     def isComposite(self):
         return True
