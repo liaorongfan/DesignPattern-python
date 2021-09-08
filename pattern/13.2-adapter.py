@@ -7,7 +7,7 @@ class Page:
     def __init__(self, page_num):
         self.__page_num = page_num
 
-    def getContent(self):
+    def get_content(self):
         return "第 " + str(self.__page_num) + " 页的内容..."
 
 
@@ -231,7 +231,7 @@ class Reader:
 
         print("显示第" + str(self.__curPageNum) + "页")
         page = self.__curBook.get_page(self.__curPageNum)
-        page.getContent()
+        page.get_content()
         return page
 
 

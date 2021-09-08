@@ -447,7 +447,7 @@ class Reader:
 
         print("显示第" + str(self.__curPageNum) + "页")
         page = self.__curBook.get_page(self.__curPageNum)
-        page.getContent()
+        page.get_content()
         return page
 
 
