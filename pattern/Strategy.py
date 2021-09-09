@@ -1,11 +1,5 @@
-#!/usr/bin/python
-# Authoer: Spencer.Luo
-# Date: 5/1/2018
-
-# Version 1.0
-#=======================================================================================================================
 from abc import ABCMeta, abstractmethod
-# 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
+
 
 class IVehicle(metaclass=ABCMeta):
     """交通工具的抽象类"""
@@ -28,6 +22,7 @@ class ExpressBus(IVehicle):
     def running(self):
         print("坐快速公交(经济绿色)", end='')
 
+
 class Express(IVehicle):
     """快车"""
 
@@ -45,13 +40,13 @@ class Subway(IVehicle):
 class Classmate:
     """参加聚餐的同学"""
 
-    def __init__(self, name, vechicle):
+    def __init__(self, name, vehicle):
         self.__name = name
-        self.__vechicle = vechicle
+        self.__vehicle = vehicle
 
     def attendTheDinner(self):
         print(self.__name + " ", end='')
-        self.__vechicle.running()
+        self.__vehicle.running()
         print(" 来参加聚餐！")
 
 
