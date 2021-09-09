@@ -51,10 +51,12 @@ class Classmate:
 
 
 # Version 2.0
-#=======================================================================================================================
+# =======================================================================================================================
 # 代码框架
-#==============================
+# ==============================
 from abc import ABCMeta, abstractmethod
+
+
 # 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
 
 class Person:
@@ -67,7 +69,7 @@ class Person:
         self.height = height
 
     def showMysef(self):
-        print("%s 年龄：%d岁，体重：%0.2fkg，身高：%0.2fm" % (self.name, self.age, self.weight, self.height) )
+        print("%s 年龄：%d岁，体重：%0.2fkg，身高：%0.2fm" % (self.name, self.age, self.weight, self.height))
 
 
 class ICompare(metaclass=ABCMeta):
@@ -113,22 +115,22 @@ class SortPerson:
         """排序算法
         这里采用最简单的冒泡排序"""
         n = len(personList)
-        for i in range(0, n-1):
-            for j in range(0, n-i-1):
-                if(self.__compare.comparable(personList[j], personList[j+1]) > 0):
+        for i in range(0, n - 1):
+            for j in range(0, n - i - 1):
+                if (self.__compare.comparable(personList[j], personList[j + 1]) > 0):
                     tmp = personList[j]
-                    personList[j] = personList[j+1]
-                    personList[j+1] = tmp
+                    personList[j] = personList[j + 1]
+                    personList[j + 1] = tmp
             j += 1
         i += 1
 
 
 # 基于框架的实现
-#==============================
+# ==============================
 
 
 # Test
-#=======================================================================================================================
+# =======================================================================================================================
 
 def testTheDinner():
     sharedBicycle = SharedBicycle()
@@ -140,7 +142,6 @@ def testTheDinner():
     henry.attendTheDinner()
     ruby = Classmate("Ruby", Express())
     ruby.attendTheDinner()
-
 
 
 def testSortPerson():
@@ -172,8 +173,8 @@ def testSortPerson():
     #     person.showMysef()
 
 
+from operator import itemgetter, attrgetter
 
-from operator import itemgetter,attrgetter
 
 def testPersonListInPython():
     "用Python的方式对Person进行排序"
@@ -187,7 +188,7 @@ def testPersonListInPython():
     ]
 
     # 使用operator模块根据年龄、身高进行排序
-    sortedPerons = sorted(personList, key = attrgetter('age'))
+    sortedPerons = sorted(personList, key=attrgetter('age'))
     sortedPerons1 = sorted(personList, key=attrgetter('height'))
 
     print("根据年龄进行排序后的结果：")
@@ -198,17 +199,14 @@ def testPersonListInPython():
     for person in sortedPerons1:
         person.showMysef()
 
-
     # print("根据身高和体重的综合情况来排序：")
     # sortedPerons1 = sorted(personList, key=attrgetter("height" + "weight"))
     # for person in sortedPerons1:
     #     person.showMysef()
 
 
-
 # testTheDinner()
 # testSortPerson()
 testPersonListInPython()
-
 
 # testArray()
