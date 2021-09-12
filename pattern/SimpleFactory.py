@@ -55,7 +55,6 @@ class Coffeemaker:
 # 代码框架
 # ==============================
 from abc import ABCMeta, abstractmethod
-# 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
 from enum import Enum
 
 
@@ -155,13 +154,13 @@ def testCoffeeMaker():
 def testPenFactory():
     factory = PenFactory()
     linePen = factory.createPen(PenType.PenTypeLine)
-    print("创建了 %s，对象id：%s， 类型：%s" % (linePen.get_name(), id(linePen), linePen.getType()))
+    print("创建了 %s，对象id：%s， 类型：%s" % (linePen.get_name(), id(linePen), linePen.get_type()))
     rectPen = factory.createPen(PenType.PenTypeRect)
-    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen.get_name(), id(rectPen), rectPen.getType()))
+    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen.get_name(), id(rectPen), rectPen.get_type()))
     rectPen2 = factory.createPen(PenType.PenTypeRect)
-    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen2.get_name(), id(rectPen2), rectPen2.getType()))
+    print("创建了 %s，对象id：%s， 类型：%s" % (rectPen2.get_name(), id(rectPen2), rectPen2.get_type()))
     ellipsePen = factory.createPen(PenType.PenTypeEllipse)
-    print("创建了 %s，对象id：%s， 类型：%s" % (ellipsePen.get_name(), id(ellipsePen), ellipsePen.getType()))
+    print("创建了 %s，对象id：%s， 类型：%s" % (ellipsePen.get_name(), id(ellipsePen), ellipsePen.get_type()))
 
 
 # testCoffeeMaker()

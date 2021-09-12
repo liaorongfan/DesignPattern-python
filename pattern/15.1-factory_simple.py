@@ -40,21 +40,20 @@ class Coffeemaker:
 
     @staticmethod
     def make_coffee(coffee_bean):
-        """通过staticmethod装饰器修饰来定义一个静态方法"""
         if coffee_bean == "拿铁咖啡豆":
             coffee = LatteCaffe("拿铁咖啡")
         elif coffee_bean == "摩卡咖啡豆":
             coffee = MochaCoffee("摩卡咖啡")
         else:
-            raise ValueError("不支持的参数：%s" % coffee_bean)
+            raise ValueError(f"不支持的参数：{coffee_bean}")
         return coffee
 
 
 def test_coffee_maker():
     latte = Coffeemaker.make_coffee("拿铁咖啡豆")
-    print("%s已为您准备好了，口感：%s。请慢慢享用！" % (latte.get_name(), latte.get_taste()))
+    print("{} 已为您准备好了，口感：{}。请慢慢享用！".format(latte.get_name(), latte.get_taste()))
     mocha = Coffeemaker.make_coffee("摩卡咖啡豆")
-    print("%s已为您准备好了，口感：%s。请慢慢享用！" % (mocha.get_name(), mocha.get_taste()))
+    print("{} 已为您准备好了，口感：{}。请慢慢享用！".format(mocha.get_name(), mocha.get_taste()))
 
 
 if __name__ == '__main__':
