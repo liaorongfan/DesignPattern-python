@@ -1,11 +1,5 @@
-#!/usr/bin/python
-# Authoer: Spencer.Luo
-# Date: 12/2/2017
-
-# Version 1.0
-#=======================================================================================================================
 from abc import ABCMeta, abstractmethod
-# 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
+
 
 class Coffee(metaclass=ABCMeta):
     """咖啡"""
@@ -30,6 +24,7 @@ class LatteCaffe(Coffee):
     def getTaste(self):
         return "轻柔而香醇"
 
+
 class MochaCoffee(Coffee):
     """摩卡咖啡"""
 
@@ -39,29 +34,31 @@ class MochaCoffee(Coffee):
     def getTaste(self):
         return "丝滑与醇厚"
 
+
 class Coffeemaker:
     """咖啡机"""
 
     @staticmethod
     def makeCoffee(coffeeBean):
-        "通过staticmethod装饰器修饰来定义一个静态方法"
-        if(coffeeBean == "拿铁咖啡豆"):
+        """通过staticmethod装饰器修饰来定义一个静态方法"""
+        if coffeeBean == "拿铁咖啡豆":
             coffee = LatteCaffe("拿铁咖啡")
-        elif(coffeeBean == "摩卡咖啡豆"):
+        elif coffeeBean == "摩卡咖啡豆":
             coffee = MochaCoffee("摩卡咖啡")
         else:
             raise ValueError("不支持的参数：%s" % coffeeBean)
         return coffee
 
 
-
 # Version 2.0
-#=======================================================================================================================
+# =======================================================================================================================
 # 代码框架
-#==============================
+# ==============================
 from abc import ABCMeta, abstractmethod
 # 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
 from enum import Enum
+
+
 # Python3.4 之后支持枚举Enum的语法
 
 class PenType(Enum):
@@ -94,6 +91,7 @@ class LinePen(Pen):
     def getType(self):
         return PenType.PenTypeLine
 
+
 class RectanglePen(Pen):
     """矩形画笔"""
 
@@ -124,7 +122,6 @@ class PenFactory:
     def getSingleObj(self, penType, name):
         """获得唯一实例的对象"""
 
-
     def createPen(self, penType):
         """创建画笔"""
         if (self.__pens.get(penType) is None):
@@ -143,14 +140,14 @@ class PenFactory:
 
 
 # 基于框架的实现
-#==============================
+# ==============================
 
 
 # Test
-#=======================================================================================================================
+# =======================================================================================================================
 def testCoffeeMaker():
     latte = Coffeemaker.makeCoffee("拿铁咖啡豆")
-    print("%s已为您准备好了，口感：%s。请慢慢享用！" % (latte.getName(), latte.getTaste()) )
+    print("%s已为您准备好了，口感：%s。请慢慢享用！" % (latte.getName(), latte.getTaste()))
     mocha = Coffeemaker.makeCoffee("摩卡咖啡豆")
     print("%s已为您准备好了，口感：%s。请慢慢享用！" % (mocha.getName(), mocha.getTaste()))
 
