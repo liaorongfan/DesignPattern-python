@@ -66,10 +66,10 @@ class Waiter:
 
     def receiveOrder(self, order):
         self.__order = order
-        print("服务员%s：您的 %s 订单已经收到,请耐心等待" % (self.__name, order.getDisplayName()) )
+        print("服务员%s：您的 %s 订单已经收到,请耐心等待" % (self.__name, order.get_display_name()))
 
     def placeOrder(self):
-        food = self.__order.processingOrder()
+        food = self.__order.processing_order()
         print("服务员%s：您的餐 %s 已经准备好，请您慢用!" % (self.__name, food) )
 
 
