@@ -27,7 +27,7 @@ class Engineer:
 
     def retrospect(self, todoList):
         """回忆工作项"""
-        self.__workItems = todoList.getWorkItems()
+        self.__workItems = todoList.get_work_items()
         print(self.__name + "想起要做什么了！")
 
     def showWorkItem(self):
