@@ -6,6 +6,8 @@
 from abc import ABCMeta, abstractmethod
 # 引入ABCMeta和abstractmethod来定义抽象类和抽象方法
 import time
+
+
 # 引入time模块进行时间的控制
 
 class GameRole:
@@ -42,7 +44,8 @@ class GameRole:
         print("%s发动攻击..." % self.__name)
 
     def showPosition(self):
-        print("%s的位置：(x:%s, y:%s, z:%s)" % (self.__name, self.__x, self.__y, self.__z) )
+        print("%s的位置：(x:%s, y:%s, z:%s)" % (self.__name, self.__x, self.__y, self.__z))
+
 
 class GameCommand(metaclass=ABCMeta):
     """游戏角色的命令类"""
@@ -57,12 +60,14 @@ class GameCommand(metaclass=ABCMeta):
     def execute(self):
         pass
 
+
 class Left(GameCommand):
     """左移命令"""
 
     def execute(self):
         self._role.leftMove()
         self._role.showPosition()
+
 
 class Right(GameCommand):
     """右移命令"""
@@ -71,12 +76,14 @@ class Right(GameCommand):
         self._role.rightMove()
         self._role.showPosition()
 
+
 class Up(GameCommand):
     """上移命令"""
 
     def execute(self):
         self._role.upMove()
         self._role.showPosition()
+
 
 class Down(GameCommand):
     """下移命令"""
@@ -95,6 +102,7 @@ class Jump(GameCommand):
         # 跳起后空中停留半秒
         time.sleep(0.5)
 
+
 class Squat(GameCommand):
     """下蹲命令"""
 
@@ -111,10 +119,11 @@ class Attack(GameCommand):
     def execute(self):
         self._role.attack()
 
+
 class MacroCommand(GameCommand):
     """宏命令，也就是组合命令"""
 
-    def __init__(self, role = None):
+    def __init__(self, role=None):
         super().__init__(role)
         self.__commands = []
 
@@ -128,6 +137,7 @@ class MacroCommand(GameCommand):
     def execute(self):
         for command in self.__commands:
             command.execute()
+
 
 class GameInvoker:
     """命令调度者"""
@@ -143,6 +153,7 @@ class GameInvoker:
         if self.__command is not None:
             self.__command.execute()
 
+
 def testGame():
     """在控制台用字符来模拟命令"""
     role = GameRole("常山赵子龙")
@@ -150,68 +161,69 @@ def testGame():
     while True:
         strCmd = input("请输入命令：");
         strCmd = strCmd.upper()
-        if (strCmd == "L"):
+        if strCmd == "L":
             invoker.setCommand(Left(role)).action()
-        elif (strCmd == "R"):
+        elif strCmd == "R":
             invoker.setCommand(Right(role)).action()
-        elif (strCmd == "U"):
+        elif strCmd == "U":
             invoker.setCommand(Up(role)).action()
-        elif (strCmd == "D"):
+        elif strCmd == "D":
             invoker.setCommand(Down(role)).action()
-        elif (strCmd == "JP"):
+        elif strCmd == "JP":
             cmd = MacroCommand()
             cmd.addCommand(Jump(role))
             cmd.addCommand(Squat(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "A"):
+        elif strCmd == "A":
             invoker.setCommand(Attack(role)).action()
-        elif (strCmd == "LU"):
+        elif strCmd == "LU":
             cmd = MacroCommand()
             cmd.addCommand(Left(role))
             cmd.addCommand(Up(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "LD"):
+        elif strCmd == "LD":
             cmd = MacroCommand()
             cmd.addCommand(Left(role))
             cmd.addCommand(Down(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "RU"):
+        elif strCmd == "RU":
             cmd = MacroCommand()
             cmd.addCommand(Right(role))
             cmd.addCommand(Up(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "RD"):
+        elif strCmd == "RD":
             cmd = MacroCommand()
             cmd.addCommand(Right(role))
             cmd.addCommand(Down(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "LA"):
+        elif strCmd == "LA":
             cmd = MacroCommand()
             cmd.addCommand(Left(role))
             cmd.addCommand(Attack(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "RA"):
+        elif strCmd == "RA":
             cmd = MacroCommand()
             cmd.addCommand(Right(role))
             cmd.addCommand(Attack(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "UA"):
+        elif strCmd == "UA":
             cmd = MacroCommand()
             cmd.addCommand(Up(role))
             cmd.addCommand(Attack(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "DA"):
+        elif strCmd == "DA":
             cmd = MacroCommand()
             cmd.addCommand(Down(role))
             cmd.addCommand(Attack(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "JA"):
+        elif strCmd == "JA":
             cmd = MacroCommand()
             cmd.addCommand(Jump(role))
             cmd.addCommand(Attack(role))
             cmd.addCommand(Squat(role))
             invoker.setCommand(cmd).action()
-        elif (strCmd == "Q"):
+        elif strCmd == "Q":
             exit()
+
 
 testGame()

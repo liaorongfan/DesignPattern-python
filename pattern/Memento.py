@@ -104,7 +104,7 @@ class Originator:
         return memento
 
     def restoreFromMemento(self, memento):
-        self.__dict__.update(memento.getAttributes())
+        self.__dict__.update(memento.get_attributes())
 
 
 # 基于框架的实现
