@@ -103,7 +103,7 @@ class CommandImpl(Command):
         self.__receiver = receiver
 
     def execute(self):
-        self.__receiver.doSomething()
+        self.__receiver.do_something()
 
 class Receiver:
     """命令的接收者"""
